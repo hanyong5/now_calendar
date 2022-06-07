@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset='utf-8' />
+  <link href='lib/main.css' rel='stylesheet' />
+  <script src='lib/main.js'></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      var calendarEl = document.getElementById('calendar');
+
+      var calendar = new FullCalendar.Calendar(calendarEl, {
+        //height: '100%',
+        expandRows: true,
+        headerToolbar: {
+          left: 'prev,next today',
+          center: 'title',
+          right: 'dayGridMonth,timeGridWeek,timeGridDay,listWeek'
+        },
+
+
+        navLinks: true, // can click day/week names to navigate views
+        editable: false,
+        selectable: false,
+        //selectMirror: true,
+        fixedWeekCount: false,
+        locale: 'ko',
+        businessHours: true,
+        nowIndicator: true,
+        dayMaxEvents: true, // allow "more" link when too many events
+
+        googleCalendarApiKey: 'AIzaSyCfu-MD2UWXYYMN2oG4AVxKd0yAhcv2qM0',
+
+        //연동될 구글캘린더가 여러개인경우 eventSources를 이용하여 캘린더 머지함
+        eventSources: [
+          {
+            googleCalendarId: 'qknl2d2rlbvtg8b0im9chkv9c8@group.calendar.google.com',
+            color: 'green'
+          },
+          {   //대한민국 공휴일
+            googleCalendarId: 'ko.south_korea#holiday@group.v.calendar.google.com'
+          }
+        ]
+        , eventClick: function (info) {
+          //클릭시 구글캘린더 url로 가는것을 막는다.
+          //window.open(arg.event.url, 'google-calendar-event', 'width=700,height=600');
+          info.jsEvent.stopPropagation();
+          //info.jsEvent.preventDefault();
+        }
+        ,events:[
+          {
+            title: '은혜',
+            url: 'https://youtu.be/4BqTAjZ-Mp8',
+            start: '2022-06-05'
+          },
+          {
+            title: '주를 향한 나의 사랑을',
+            url: 'https://youtu.be/FY9KRCeqhpI',
+            start: '2022-06-12'
+          }
+        ]
+
+
+      });
+
+      calendar.render();
+    });
+
+
+  </script>
+  <style>
+    body {
+      margin: 40px 10px;
+      padding: 0;
+      font-family: Arial, Helvetica Neue, Helvetica, sans-serif;
+      font-size: 14px;
+    }
+
+    #loading {
+      display: none;
+      position: absolute;
+      top: 10px;
+      right: 10px;
+    }
+
+    #calendar {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div id='loading'>loading...</div>
+
+  <div id='calendar'></div>
+
+</body>
+
+</html>
