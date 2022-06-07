@@ -5,13 +5,20 @@
   <meta charset='utf-8' />
   <link href='lib/main.css' rel='stylesheet' />
   <script src='lib/main.js'></script>
+  <style>
+    .fc table{font-size: 1em;}
+    tbody td{height: 100px;}
+    .fc .fc-scrollgrid-liquid {
+    height: 200%;
+  }
+  </style>
   <script>
     document.addEventListener('DOMContentLoaded', function () {
       var calendarEl = document.getElementById('calendar');
 
       var calendar = new FullCalendar.Calendar(calendarEl, {
         //height: '100%',
-        expandRows: true,
+        //expandRows: true,
         headerToolbar: {
           left: 'prev,next today',
           center: 'title',
