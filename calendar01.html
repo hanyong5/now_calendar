@@ -6,12 +6,15 @@
   <link href='lib/main.css' rel='stylesheet' />
   <script src='lib/main.js'></script>
   <style>
-    .fc table{font-size: 1.5rem;}
+    .fc table{font-size: 1.6rem;}
     tbody td{height: 100px;}
     .fc .fc-scrollgrid-liquid {
     height: 200%;}
-    /* tbody>tr>td:first-child{background: skyblue;} */
-    .fc .fc-non-business{}
+    .fc{font-size: 2em;}
+  
+    .fc-toolbar-chunk:nth-child(3){display: none;}
+    .fc-scrollgrid-sync-table tbody tr td:first-child{background: rgba(255,0,0,0.2);}
+    .fc-scrollgrid-sync-table tbody tr td:last-child{background: rgba(0,0,255,0.2);}
   </style>
   <script>
     document.addEventListener('DOMContentLoaded', function () {
@@ -27,15 +30,15 @@
         },
 
 
-        navLinks: true, // can click day/week names to navigate views
+        navLinks: false, // can click day/week names to navigate views
         editable: false,
         selectable: false,
         //selectMirror: true,
         fixedWeekCount: false,
-        //locale: 'ko',
-        businessHours: true,
-        nowIndicator: true,
-        dayMaxEvents: true, // allow "more" link when too many events
+        locale: 'ko',
+        businessHours: false,
+        nowIndicator: false,
+        dayMaxEvents: false, // allow "more" link when too many events
 
         googleCalendarApiKey: 'AIzaSyCfu-MD2UWXYYMN2oG4AVxKd0yAhcv2qM0',
 
