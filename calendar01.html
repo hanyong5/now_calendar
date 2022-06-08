@@ -6,11 +6,12 @@
   <link href='lib/main.css' rel='stylesheet' />
   <script src='lib/main.js'></script>
   <style>
-    .fc table{font-size: 2em;}
+    .fc table{font-size: 1.5rem;}
     tbody td{height: 100px;}
     .fc .fc-scrollgrid-liquid {
-    height: 200%;
-  }
+    height: 200%;}
+    /* tbody>tr>td:first-child{background: skyblue;} */
+    .fc .fc-non-business{}
   </style>
   <script>
     document.addEventListener('DOMContentLoaded', function () {
@@ -31,7 +32,7 @@
         selectable: false,
         //selectMirror: true,
         fixedWeekCount: false,
-        locale: 'ko',
+        //locale: 'ko',
         businessHours: true,
         nowIndicator: true,
         dayMaxEvents: true, // allow "more" link when too many events
@@ -42,10 +43,11 @@
         eventSources: [
           {
             googleCalendarId: 'qknl2d2rlbvtg8b0im9chkv9c8@group.calendar.google.com',
-            color: 'green'
+            color: 'skyblue'
           },
           {   //대한민국 공휴일
-            googleCalendarId: 'ko.south_korea#holiday@group.v.calendar.google.com'
+            googleCalendarId: 'ko.south_korea#holiday@group.v.calendar.google.com',
+            color:'red'
           }
         ]
         , eventClick: function (info) {
